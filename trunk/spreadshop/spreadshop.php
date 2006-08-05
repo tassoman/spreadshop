@@ -3,7 +3,7 @@
 Plugin Name: Spreadshop
 Plugin URI: http://blog.tassoman.com/spreadshirt-wordpress-plugin
 Description: Insert your personal SpreadShirt's shop (spreadshop) wrapped into Wordpress without any popup or iframe.
-Version: 1.3
+Version: 1.4
 Author: Tassoman
 Author URI: http://blog.tassoman.com
 */
@@ -12,7 +12,6 @@ Author URI: http://blog.tassoman.com
 
 	Translations:
 	Italian:	Tassoman		(email: tassoman@gmail.com)
-	German:		Frank Bueltge	(email: frank@bueltge.de)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -247,10 +246,10 @@ function spread_shop_filter($data) {
 			$article =get_object_vars($article);
 ?>
 <div class="spreadarticle">
-	<a href="http://www.spreadshirt<?=$spreadshop['site'];?>/shop.php?sid=<?=$spreadshop["id"];?>&amp;article_id=<?=$article["id"];?>" title="<?=$article["name"];?>" target="_blank" rel="no-follow"><img src="http://www.spreadshirt<?=$spreadshop['site'];?>/<?=$article["picurl"];?>" alt="<?=$article["name"];?>" /></a>
+	<a href="http://www.spreadshirt<?=$spreadshop['site'];?>/shop.php?sid=<?=$spreadshop["id"];?>&amp;article_id=<?=$article["id"];?>" title="<?=$article["name"];?>" target="_blank" rel="nofollow"><img src="http://www.spreadshirt<?=$spreadshop['site'];?>/<?=$article["picurl"];?>" alt="<?=$article["name"];?>" /></a>
 	<h3><?=$article["name"];?></h3>
 	<p><?=$article["description"];?></p>
-	<p>&euro;. <?=$article["price"];?></p>
+	<p><?=$article["price"];?> <?php echo ($spreadshop['site'] == '.net') ? 'EUR' : 'USD';?></p>
 </div>
 <?php
 		}
@@ -262,6 +261,19 @@ function spread_shop_filter($data) {
 		$data = substr_replace($data, $content, $start, strlen(SPREAD_PAGE));
 	}
 	return $data;
+}
+
+function randomSpreadArticle($size = 'small') {
+	$spreadshop = get_option('spreadshop');
+	$randart = array_rand($spreadshop['articles']);
+	$article = get_object_vars($spreadshop['articles'][$randart]);
+	$article['picurl'] = ereg_replace('^(.*)(small|medium|big|huge)(.*)$','\\1'.$size.'\\3', $article['picurl']);
+?>
+<a href="http://www.spreadshirt<?=$spreadshop['site'];?>/shop.php?sid=<?=$spreadshop["id"];?>&amp;article_id=<?=$article["id"];?>" title="<?=$article["name"];?>" target="_blank" rel="nofollow"><img src="http://www.spreadshirt<?=$spreadshop['site'];?>/<?=$article["picurl"];?>" alt="<?=$article["name"];?>" /></a>
+<h4><?=$article["name"];?></h4>
+<p><?=$article["description"];?> &raquo; <?=$article["price"];?> <?php echo ($spreadshop['site'] == '.net') ? 'EUR' : 'USD';?></p>
+</div>
+<?php
 }
 
 add_filter('the_content', 'spread_shop_filter');
