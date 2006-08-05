@@ -28,6 +28,8 @@ Author URI: http://blog.tassoman.com
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
+define('SPREAD_VER', 1.4);
+
 if(function_exists('load_plugin_textdomain'))
 	load_plugin_textdomain('spreadshop','wp-content/plugins/spreadshop');
 
@@ -215,9 +217,20 @@ margin-left: 150px;
 			</form>
 		</fieldset>
 		<fieldset class="options">
+<?php
+if(in_array(WPLANG, array('en_US', 'it_IT','nl_NL','de_DE','fr_FR','zh_CN','es_ES'))) $langpal = WPLANG;
+else $langpal = 'en_US';
+
+if(ini_get('allow_url_fopen')) {
+	$stableversion = (ini_get('allow_url_fopen')) ? file('http://spreadshop.googlecode.com/svn/trunk/spreadshop/stable.ver') : array(99.9) ;
+	$spreadstatus = ( SPREAD_VER < $stableversion[0] ) ? '<span style="color:red;">' . __('must be upgraded','spreadshop') . '</span>' : __('is lastest','spreadshop') ;
+}
+else $spreadstatus = '<span style="color:orange;">' . __('can\'t be detected','spreadshop') . '</span> ' . __('remember to check for updates often','spreadshop');
+?>
+			<h3><?php _e('Your version of','spreadshop');?> <?php _e('Spreadshop plugin','spreadshop');?> <?php echo $spreadstatus; ?></h3>
 			<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 				<input type="hidden" name="cmd" value="_s-xclick">
-				<input type="image" src="https://www.paypal.com/it_IT/i/btn/x-click-but11.gif" border="0" name="submit" alt="Make a donation">
+				<input type="image" src="https://www.paypal.com/<?=$langpal;?>/i/btn/x-click-but11.gif" border="0" name="submit" alt="Make a donation">
 				<img alt="" border="0" src="https://www.paypal.com/it_IT/i/scr/pixel.gif" width="1" height="1">
 				<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----">
 			</form>
