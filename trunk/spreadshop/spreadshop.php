@@ -3,7 +3,7 @@
 Plugin Name: Spreadshop
 Plugin URI: http://blog.tassoman.com/spreadshirt-wordpress-plugin
 Description: Insert your personal SpreadShirt's shop (spreadshop) wrapped into Wordpress without any popup or iframe.
-Version: 1.5
+Version: 1.6
 Author: Tassoman
 Author URI: http://blog.tassoman.com
 */
@@ -13,6 +13,7 @@ Author URI: http://blog.tassoman.com
 	Translations:
 	Italian:	Tassoman		(tassoman@gmail.com)
 	German:		Frank Bueltge	(frank@bueltge.de)
+	French:		David Allard	(guerdal@free.fr)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -29,7 +30,7 @@ Author URI: http://blog.tassoman.com
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
-define('SPREAD_VER', 1.5);
+define('SPREAD_VER', 1.6);
 
 if(function_exists('load_plugin_textdomain'))
 	load_plugin_textdomain('spreadshop','wp-content/plugins/spreadshop');
