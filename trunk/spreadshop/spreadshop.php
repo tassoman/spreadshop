@@ -3,15 +3,16 @@
 Plugin Name: Spreadshop
 Plugin URI: http://blog.tassoman.com/spreadshirt-wordpress-plugin
 Description: Insert your personal SpreadShirt's shop (spreadshop) wrapped into Wordpress without any popup or iframe.
-Version: 1.4
+Version: 1.5
 Author: Tassoman
 Author URI: http://blog.tassoman.com
 */
 
-/*  Copyright 2006  Tassoman  (email: tassoman@gmail.com)
+/*  Copyright 2006  Tassoman  (tassoman@gmail.com)
 
 	Translations:
-	Italian:	Tassoman		(email: tassoman@gmail.com)
+	Italian:	Tassoman		(tassoman@gmail.com)
+	German:		Frank Bueltge	(frank@bueltge.de)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -28,7 +29,7 @@ Author URI: http://blog.tassoman.com
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
-define('SPREAD_VER', 1.4);
+define('SPREAD_VER', 1.5);
 
 if(function_exists('load_plugin_textdomain'))
 	load_plugin_textdomain('spreadshop','wp-content/plugins/spreadshop');
@@ -174,7 +175,7 @@ margin-left: 150px;
 	?>
 	<div class="wrap">
 		<h2><?php _e('Spreadshop plugin for WordPress','spreadshop');?></h2>
-		<p><?php _e('This plugin lets you add a Spreadshop registered on Spreadshirt website either accounted','spreadshop');?> <a href="http://www.spreadshirts.com" title="Spreadshirt <?php _e('in USA','spreadshop');?>"><?php _e('in USA','spreadshop');?></a> or <a href="http://www.spreadshirts.net" title="Spreadshirt <?php _e('in Europe','spreadshop');?>"><?php _e('in Europe','spreadshop');?></a></p>
+		<p><?php _e('This plugin lets you add a Spreadshop registered on Spreadshirt website either accounted','spreadshop');?> <a href="http://www.spreadshirts.com" title="Spreadshirt <?php _e('in USA','spreadshop');?>"><?php _e('in USA','spreadshop');?></a> <?php _e('or','spreadshop');?> <a href="http://www.spreadshirts.net" title="Spreadshirt <?php _e('in Europe','spreadshop');?>"><?php _e('in Europe','spreadshop');?></a></p>
 		<p><?php _e('Please fill the following form to update your Spreadshop.','spreadshop');?></p>
 		<p><?php _e('For now, the only way to get the entire shop imported into your wordpress blog, is creating a page with','spreadshop');?> <span style="font-family: Courier, monospace;">&lt;!--spreadshop--&gt;</span> <?php _e('as content of post.','spreadshop');?></p>
 		<p><?php _e('If you want to manage CSS style for each article, you must edit this CSS class:','spreadshop');?> <em>.spreadarticle</em></p>
@@ -210,7 +211,7 @@ margin-left: 150px;
 							<option value="desc"><?php _e('Last item, first object','spreadshop');?></option>
 							<option value="asc"><?php _e('First item, first object','spreadshop');?></option>
 						</select>
-					<li><label><?php _e('CSS editing:'.'spreadshop');?></label>
+					<li><label><?php _e('CSS editing:','spreadshop');?></label>
 						<textarea name="spread_css" style="width:100%; height:5em;"><?=$spread_form["css"];?></textarea></li>
 				</ol>
 				<div class="submit"><input type="submit" value="<?php _e('Update Spreadshop options','spreadshop');?>" /></div>
