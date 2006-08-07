@@ -51,6 +51,10 @@ msgid "in USA"
 msgstr ""
 
 #: spreadshop.php:177
+msgid "or"
+msgstr ""
+
+#: spreadshop.php:177
 #: spreadshop.php:192
 msgid "in Europe"
 msgstr ""

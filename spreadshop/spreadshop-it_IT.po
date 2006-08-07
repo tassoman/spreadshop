@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: spreadshop\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2006-08-05 22:16+0100\n"
+"PO-Revision-Date: 2006-08-07 12:15+0100\n"
 "Last-Translator: Tassoman <tassoman@gmail.com>\n"
 "Language-Team: Tassoman <tassoman@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -14,162 +14,162 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: spreadshop.php:41
-#: spreadshop.php:227
+#: spreadshop.php:42
+#: spreadshop.php:231
 msgid "Spreadshop plugin"
 msgstr "Plugin Spreadshop"
 
-#: spreadshop.php:82
+#: spreadshop.php:83
 msgid "I can't connect to Spreadshirt website!"
 msgstr "Non sono riuscito a collegarmi al sito Spreadshirt!"
 
-#: spreadshop.php:132
+#: spreadshop.php:133
 msgid "Default shop name"
 msgstr "Nome predefinito del negozio"
 
-#: spreadshop.php:133
+#: spreadshop.php:134
 msgid "This is the default shop description"
 msgstr "Descrizione predefinita del negozio"
 
-#: spreadshop.php:163
+#: spreadshop.php:164
 msgid "Your Spreadshop was updated!"
 msgstr "Il tuo Spreadshop è stato aggiornato!"
 
-#: spreadshop.php:167
+#: spreadshop.php:168
 msgid "You've entered wrong data. Please repeat."
 msgstr "Hai inserito dei dati non validi. Per favore riprova"
 
-#: spreadshop.php:176
+#: spreadshop.php:177
 msgid "Spreadshop plugin for WordPress"
 msgstr "Plugin Spreadshop per WordPress"
 
-#: spreadshop.php:177
+#: spreadshop.php:178
 msgid "This plugin lets you add a Spreadshop registered on Spreadshirt website either accounted"
 msgstr "Questo plugin ti permette di inserire un negozio registrato sul sito  Spreadshirt"
 
-#: spreadshop.php:177
-#: spreadshop.php:193
+#: spreadshop.php:178
+#: spreadshop.php:194
 msgid "in USA"
 msgstr "negli Stati Uniti"
 
-#: spreadshop.php:177
-#: spreadshop.php:192
+#: spreadshop.php:178
+msgid "or"
+msgstr "oppure"
+
+#: spreadshop.php:178
+#: spreadshop.php:193
 msgid "in Europe"
 msgstr "in Europa"
 
-#: spreadshop.php:178
+#: spreadshop.php:179
 msgid "Please fill the following form to update your Spreadshop."
 msgstr "Per favore, riempi il modulo seguente per aggiornare il tuo negozio Spreadshop."
 
-#: spreadshop.php:179
+#: spreadshop.php:180
 msgid "For now, the only way to get the entire shop imported into your wordpress blog, is creating a page with"
 msgstr "Per ora, l'unico modo di importare il negozio nel tuo blog WordPress è creare una pagina con"
 
-#: spreadshop.php:179
+#: spreadshop.php:180
 msgid "as content of post."
 msgstr "come contenuto dell'articolo."
 
-#: spreadshop.php:180
+#: spreadshop.php:181
 msgid "If you want to manage CSS style for each article, you must edit this CSS class:"
 msgstr "Se vuoi gestire lo stile CSS di ogni articolo, devi modificare questa classe:"
 
-#: spreadshop.php:181
+#: spreadshop.php:182
 msgid "To edit the Spreadshop wrapper, use this CSS identificator:"
 msgstr "Per modificare il contenitore Spreadshop usa questo identificatore CSS:"
 
-#: spreadshop.php:182
+#: spreadshop.php:183
 msgid "Warning:"
 msgstr "Attenzione:"
 
-#: spreadshop.php:182
+#: spreadshop.php:183
 msgid "You must update this options every time you update the shop on Spreadshirt"
 msgstr "Devi aggiornare le opzioni ogni volta che aggiorni il negozio sul sito Spreadshirt"
 
-#: spreadshop.php:184
+#: spreadshop.php:185
 msgid "Spreadshop settings"
 msgstr "Impostazioni del negozio Spreadshop"
 
-#: spreadshop.php:189
+#: spreadshop.php:190
 msgid "Which continent?"
 msgstr "In quale continente?"
 
-#: spreadshop.php:195
+#: spreadshop.php:196
 msgid "Shop ID:"
 msgstr "ID del negozio:"
 
-#: spreadshop.php:196
+#: spreadshop.php:197
 msgid "Shop Name:"
 msgstr "Nome del negozio:"
 
-#: spreadshop.php:197
+#: spreadshop.php:198
 msgid "Shop description:"
 msgstr "Descrizione del negozio:"
 
-#: spreadshop.php:197
+#: spreadshop.php:198
 msgid "(html is welcome)"
 msgstr "(l'html è consigliato)"
 
-#: spreadshop.php:198
+#: spreadshop.php:199
 msgid "Image size:"
 msgstr "Dimensioni immagine:"
 
-#: spreadshop.php:201
+#: spreadshop.php:202
 msgid "small (42x42)"
 msgstr "piccola (42x42)"
 
-#: spreadshop.php:202
+#: spreadshop.php:203
 msgid "medium (130x130)"
 msgstr "media (130x130)"
 
-#: spreadshop.php:203
+#: spreadshop.php:204
 msgid "big (190x190)"
 msgstr "grande (190x190)"
 
-#: spreadshop.php:204
+#: spreadshop.php:205
 msgid "huge (280x280)"
 msgstr "enorme (280x280)"
 
-#: spreadshop.php:207
+#: spreadshop.php:208
 msgid "Order articles by:"
 msgstr "Elenca gli articoli per:"
 
-#: spreadshop.php:210
+#: spreadshop.php:211
 msgid "Last item, first object"
 msgstr "Dal più recente al più antico"
 
-#: spreadshop.php:211
+#: spreadshop.php:212
 msgid "First item, first object"
 msgstr "Dal più antico al più recente"
 
-#: spreadshop.php:213
+#: spreadshop.php:214
 msgid "CSS editing:"
 msgstr "Modifica il CSS:"
 
-#: spreadshop.php:213
-msgid "spreadshop"
-msgstr "spreadshop"
-
-#: spreadshop.php:216
+#: spreadshop.php:217
 msgid "Update Spreadshop options"
 msgstr "Aggiorna le opzioni Spreadshop"
 
-#: spreadshop.php:223
+#: spreadshop.php:227
 msgid "must be upgraded"
 msgstr "deve essere aggiornata"
 
-#: spreadshop.php:223
+#: spreadshop.php:227
 msgid "is lastest"
 msgstr "è la più recente"
 
-#: spreadshop.php:225
+#: spreadshop.php:229
 msgid "can't be detected"
 msgstr "non riesco a valutarla"
 
-#: spreadshop.php:225
+#: spreadshop.php:229
 msgid "remember to check for updates often"
 msgstr "controlla manualmente gli aggiornamenti"
 
-#: spreadshop.php:227
+#: spreadshop.php:231
 msgid "Your version of"
 msgstr "La tua versione del"
 
