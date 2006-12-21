@@ -30,7 +30,7 @@ Author URI: http://blog.tassoman.com
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
-define('SPREAD_VER', 1.6);
+define('SPREAD_VER', 1.7);
 
 if(function_exists('load_plugin_textdomain'))
 	load_plugin_textdomain('spreadshop','wp-content/plugins/spreadshop');
@@ -278,6 +278,34 @@ function spread_shop_filter($data) {
 	return $data;
 }
 
+function showArticle($id, $size = 'small') {
+	$spreadshop = get_option('spreadshop');
+	foreach($spreadshop["articles"] AS $article ) {
+		$article = get_object_vars($article);
+		if($article["id"] == $id) {
+			$article['picurl'] = ereg_replace('^(.*)(small|medium|big|huge)(.*)$','\\1'.$size.'\\3', $article['picurl']);
+?>
+<a href="http://www.spreadshirt<?=$spreadshop['site'];?>/shop.php?sid=<?=$spreadshop["id"];?>&amp;article_id=<?=$article["id"];?>" title="<?=$article["name"];?>" target="_blank" rel="nofollow"><img src="http://www.spreadshirt<?=$spreadshop['site'];?>/<?=$article["picurl"];?>" alt="<?=$article["name"];?>" /></a>
+<h4><?=$article["name"];?></h4>
+<p><?=$article["description"];?> &raquo; <?=$article["price"];?> <?php echo ($spreadshop['site'] == '.net') ? 'EUR' : 'USD';?></p>
+<?php
+		}
+	}
+}
+
+function spread_article_filter($data) {
+	$pattern = '/\<\!\-\-spreadarticle\=(\d+)\-\-\>/';
+	while(preg_match($pattern, $data, $matches)) {
+		ob_start();
+		showArticle($matches[1]);
+		$content = ob_get_contents();
+		ob_end_clean();
+		$replace_pattern = '/\<\!\-\-spreadarticle\='.$matches[1].'\-\-\>/';
+		$data = preg_replace($replace_pattern, $content, $data);
+	}
+	return $data;
+}
+
 function randomSpreadArticle($size = 'small') {
 	$spreadshop = get_option('spreadshop');
 	$randart = array_rand($spreadshop['articles']);
@@ -287,10 +315,11 @@ function randomSpreadArticle($size = 'small') {
 <a href="http://www.spreadshirt<?=$spreadshop['site'];?>/shop.php?sid=<?=$spreadshop["id"];?>&amp;article_id=<?=$article["id"];?>" title="<?=$article["name"];?>" target="_blank" rel="nofollow"><img src="http://www.spreadshirt<?=$spreadshop['site'];?>/<?=$article["picurl"];?>" alt="<?=$article["name"];?>" /></a>
 <h4><?=$article["name"];?></h4>
 <p><?=$article["description"];?> &raquo; <?=$article["price"];?> <?php echo ($spreadshop['site'] == '.net') ? 'EUR' : 'USD';?></p>
-</div>
 <?php
 }
 
+
 add_filter('the_content', 'spread_shop_filter');
+add_filter('the_content', 'spread_article_filter');
 
 ?>
