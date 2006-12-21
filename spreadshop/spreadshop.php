@@ -14,6 +14,8 @@ Author URI: http://blog.tassoman.com
 	Italian:	Tassoman		(tassoman@gmail.com)
 	German:		Frank Bueltge	(frank@bueltge.de)
 	French:		David Allard	(guerdal@free.fr)
+	
+	ShowArticle, and spread_article_filter functions are written by Steffen Forkmann (steffen.forkmann@msu-solutions.de)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -294,13 +296,16 @@ function showArticle($id, $size = 'small') {
 }
 
 function spread_article_filter($data) {
-	$pattern = '/\<\!\-\-spreadarticle\=(\d+)\-\-\>/';
+	$pattern = '/\<\!\-\-spreadarticle\=(\d+)(:(small|medium|big|huge))?\-\-\>/';
 	while(preg_match($pattern, $data, $matches)) {
 		ob_start();
-		showArticle($matches[1]);
+		if($matches[3])
+			showArticle($matches[1],$matches[3]);
+		else
+			showArticle($matches[1]);
 		$content = ob_get_contents();
 		ob_end_clean();
-		$replace_pattern = '/\<\!\-\-spreadarticle\='.$matches[1].'\-\-\>/';
+		$replace_pattern = '/\<\!\-\-spreadarticle\='.$matches[1].'(:'.$matches[3].')?\-\-\>/';
 		$data = preg_replace($replace_pattern, $content, $data);
 	}
 	return $data;
