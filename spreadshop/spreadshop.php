@@ -32,7 +32,7 @@ Author URI: http://blog.tassoman.com
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
-define('SPREAD_VER', 1.8);
+define('SPREAD_VER', 180);
 
 if(function_exists('load_plugin_textdomain'))
 	load_plugin_textdomain('spreadshop','wp-content/plugins/spreadshop');
