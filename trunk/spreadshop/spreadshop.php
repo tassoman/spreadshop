@@ -3,7 +3,7 @@
 Plugin Name: Spreadshop
 Plugin URI: http://blog.tassoman.com/spreadshirt-wordpress-plugin
 Description: Insert your personal SpreadShirt's shop (spreadshop) wrapped into Wordpress without any popup or iframe.
-Version: 1.6
+Version: 1.8
 Author: Tassoman
 Author URI: http://blog.tassoman.com
 */
@@ -14,7 +14,7 @@ Author URI: http://blog.tassoman.com
 	Italian:	Tassoman		(tassoman@gmail.com)
 	German:		Frank Bueltge	(frank@bueltge.de)
 	French:		David Allard	(guerdal@free.fr)
-	
+
 	ShowArticle, and spread_article_filter functions are written by Steffen Forkmann (steffen.forkmann@msu-solutions.de)
 
     This program is free software; you can redistribute it and/or modify
@@ -32,7 +32,7 @@ Author URI: http://blog.tassoman.com
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
-define('SPREAD_VER', 1.7);
+define('SPREAD_VER', 1.8);
 
 if(function_exists('load_plugin_textdomain'))
 	load_plugin_textdomain('spreadshop','wp-content/plugins/spreadshop');
@@ -92,8 +92,9 @@ function spread_sub_page() {
    				$filesrc = '/articlefeed.php?sid=' . $id . '&picsize=' . $size;
 				$rqst = "GET $filesrc HTTP/1.1\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip, deflate\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)\r\nHost: www.spreadshirt$site:80\r\nConnection: Keep-Alive\r\n\r\n";
        			fputs($handle, $rqst);
+       			socket_set_timeout($handle, 5);
        			while (!feof($handle)) {
-					$data .= fread($fp, 4096);
+					$data .= fread($handle, 4096);
        			}
        			fclose($handle);
        			$data = substr($data, strpos($data, "\r\n\r\n") + 4);
