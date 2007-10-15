@@ -2,4 +2,4 @@
 
 WordPress is the PHP blogging free software this plugin should be plugged in.
 
-To understand more, visit [http://wordpress.org WordPress home page] or read more about [http://en.wikipedia.org/WordPress WordPress on Wikipedia]
+To understand more, visit [http://wordpress.org WordPress home page] or read more about [http://en.wikipedia.org/wiki/WordPress WordPress on Wikipedia]
